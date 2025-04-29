@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface IUserRepository {
 
     Optional<UsersEntity> findByEmail(String email);
+
+    void save(UsersEntity usersEntity);
 }

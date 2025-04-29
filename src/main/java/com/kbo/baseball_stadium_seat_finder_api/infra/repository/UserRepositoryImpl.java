@@ -18,4 +18,9 @@ public class UserRepositoryImpl implements IUserRepository {
     public Optional<UsersEntity> findByEmail(String email) {
         return userJpaRepository.findByEmail(email);
     }
+
+    @Override
+    public void save(UsersEntity usersEntity) {
+        userJpaRepository.save(usersEntity);
+    }
 }
