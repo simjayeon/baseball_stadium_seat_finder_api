@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: baseball_stadium_seat_finder_api
+  datasource:
+    url: jdbc:mysql://localhost:3306/baseball
+    username: root
+    password: 'tla153246'
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+# application.yml
+server:
+  address: 0.0.0.0
