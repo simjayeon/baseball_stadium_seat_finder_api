@@ -4,9 +4,11 @@ package com.kbo.baseball_stadium_seat_finder_api.interfaces.dto.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class ReqSignUpDto {
     @NotBlank
     private String name;
