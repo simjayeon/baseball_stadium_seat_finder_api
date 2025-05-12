@@ -3,8 +3,8 @@ package com.kbo.baseball_stadium_seat_finder_api.domain.service;
 import com.kbo.baseball_stadium_seat_finder_api.domain.entity.StadiumEntity;
 import com.kbo.baseball_stadium_seat_finder_api.domain.enums.StadiumEnum;
 import com.kbo.baseball_stadium_seat_finder_api.domain.repository.IStadiumRepository;
+import com.kbo.baseball_stadium_seat_finder_api.interfaces.dto.response.ResStadiumList;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,15 +15,15 @@ public class StadiumService {
 
     private final IStadiumRepository stadiumRepository;
 
-    public ResponseEntity<?> getStadiumList() {
+    public List<ResStadiumList> getStadiumList() {
         List<StadiumEntity> stadiumList = stadiumRepository.findAll();
 
         if (stadiumList.isEmpty()) {
-            return ResponseEntity.noContent().build();
+            return List.of();
         }
 
-        return ResponseEntity.ok(stadiumList.stream()
-                .map(StadiumEnum::from)
-                .toList());
+        return stadiumList.stream()
+                .map(stadium -> new ResStadiumList(StadiumEnum.from(stadium)))
+                .toList();
     }
 }
