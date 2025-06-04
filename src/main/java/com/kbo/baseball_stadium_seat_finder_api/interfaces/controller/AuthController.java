@@ -24,4 +24,9 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody @Valid ReqLoginDto reqDto) {
         return ResponseEntity.ok(authService.login(reqDto));
     }
+
+//    @PostMapping("/kakao-login")
+//    public ResponseEntity<?> kakaoLogin(@RequestBody @Valid ReqLoginDto reqDto) {
+//        return ResponseEntity.ok(authService.login(reqDto));
+//    }
 }
